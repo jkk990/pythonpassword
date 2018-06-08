@@ -3,6 +3,11 @@ class User:
     Class that generates new instances of user data
     """
     user_list = []
+    def save_user(self):
+        '''
+        save_user method saves user objects into user_list
+        '''
+        User.user_list.append(self)
 
     def __init__(self,email,password):
 
