@@ -13,4 +13,4 @@ class TestUser(unittest.TestCase):
         '''
         Set up method to run before each test cases.
         '''
-        self.new
+        self.new_user = User("jk@b.com", "allow")
