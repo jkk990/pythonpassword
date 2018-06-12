@@ -36,5 +36,20 @@ class TestUser(unittest.TestCase):
             '''
             Credential.credential_list = []
 
+    def test_save_multiple_credential(self):
+            '''
+            test_save_multiple_credential to check if we can save multiple credential objects to our credential_list
+            '''
+            self.new_credential.save_credential()
+            test_credential = Credential("facebook", "jk@c.com", "allow")
+
+    def test_delete_user(self):
+           '''
+           test_delete_user to test if we can remove a user from our user list
+           '''
+           self.test_credential = Credential("facebook", "jk@c.com", "allow")
+           self.test_credential.save_credential()
+           self.test_credential.delete_credential()
+           self.assertEqual(len(Credential.credential_list),0)
 if __name__ == "__main__":
     unittest.main()
