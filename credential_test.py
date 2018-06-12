@@ -53,16 +53,31 @@ class TestUser(unittest.TestCase):
            self.assertEqual(len(Credential.credential_list),0)
 
     def test_find_credential_by_account_name(self):
-        '''
-        test to check if we can find a contact by phone number and display information
-        '''
+           '''
+           test to check if we can find a contact by phone number and display information
+           '''
 
-        self.new_credential.save_credential()
-        test_credential = Credential("facebook", "jk@c.com", "allow")# new contact
-        test_credential.save_credential()
+           self.new_credential.save_credential()
+           test_credential = Credential("facebook", "jk@c.com", "allow")
+           test_credential.save_credential()
 
-        found_credential = Credential.find_by_account_name("facebook")
+           found_credential = Credential.find_by_account_name("facebook")
 
-        self.assertEqual(found_credential.account_email,test_credential.account_email)
+           self.assertEqual(found_credential.account_email,test_credential.account_email)
+
+    def test_credential_exists(self):
+           '''
+           test to check if we can return a Boolean  if we cannot find the credential.
+           '''
+
+           self.new_credential.save_credential()
+           test_credential = Credential("facebook", "jk@c.com", "allow")
+           test_credential.save_credential()
+
+           credential_exists = Credential.credential_exist("facebook")
+
+           self.assertTrue(credential_exists)
+
+          
 if __name__ == "__main__":
     unittest.main()
