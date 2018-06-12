@@ -29,6 +29,13 @@ class User:
         '''
         
         User.user_list.remove(self)
+    
+    @classmethod
+    def display_user(cls):
+        '''
+        method that returns the contact list
+        '''
+        return cls.user_list
 
     @classmethod
     def user_exist(cls,email):
