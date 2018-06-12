@@ -1,3 +1,4 @@
+import pyperclip
 class Credential:
     """
     Class that generates new instances of user credentials
@@ -60,6 +61,7 @@ class Credential:
             if credential.account_name == account_name:
                     return True
 
+        return False
     @classmethod
     def display_credential(cls):
         '''
@@ -67,4 +69,8 @@ class Credential:
         '''
         return cls.credential_list
 
-        return False
+    @classmethod
+    def copy_account_password(cls,account_name):
+        credential_found = Credential.find_by_account_name("facebook")
+        pyperclip.copy(credential_found.account_password)
+        

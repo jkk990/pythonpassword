@@ -86,14 +86,15 @@ class TestUser(unittest.TestCase):
 
            self.assertEqual(Credential.display_credential(),Credential.credential_list) 
 
-    def test_copy_email(self):
+    def test_copy_account_password(self):
            '''
-           Test to confirm that we are copying the email address from a found credential
+           Test to confirm that we are copying the password from a found credential
            '''
 
            self.new_credential.save_credential()
-           Credential.copy_email("jk@c.com")
+           Credential.copy_account_password("allow")
 
-           self.assertEqual(self.new_credential.email,pyperclip.paste())
+           self.assertEqual(self.new_credential.account_password,pyperclip.paste())
+           
 if __name__ == "__main__":
     unittest.main()
