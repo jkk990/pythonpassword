@@ -63,6 +63,6 @@ class TestUser(unittest.TestCase):
 
         found_credential = Credential.find_by_account_name("facebook")
 
-        self.assertEqual(found_credential.email,test_credential.email)
+        self.assertEqual(found_credential.account_email,test_credential.account_email)
 if __name__ == "__main__":
     unittest.main()
