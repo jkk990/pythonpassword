@@ -1,5 +1,3 @@
-import sys
-
 class User:
     """
     Class that generates new instances of user data
