@@ -43,13 +43,26 @@ class TestUser(unittest.TestCase):
             self.new_credential.save_credential()
             test_credential = Credential("facebook", "jk@c.com", "allow")
 
-    def test_delete_user(self):
+    def test_delete_credential(self):
            '''
-           test_delete_user to test if we can remove a user from our user list
+           test_delete_credential to test if we can remove a credential from our credential list
            '''
            self.test_credential = Credential("facebook", "jk@c.com", "allow")
            self.test_credential.save_credential()
            self.test_credential.delete_credential()
            self.assertEqual(len(Credential.credential_list),0)
+
+    def test_find_credential_by_account_name(self):
+        '''
+        test to check if we can find a contact by phone number and display information
+        '''
+
+        self.new_credential.save_credential()
+        test_credential = Credential("facebook", "jk@c.com", "allow")# new contact
+        test_credential.save_credential()
+
+        found_credential = Credential.find_by_account_name("facebook")
+
+        self.assertEqual(found_credential.email,test_credential.email)
 if __name__ == "__main__":
     unittest.main()
