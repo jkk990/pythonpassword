@@ -41,7 +41,25 @@ class TestUser(unittest.TestCase):
             test_save_multiple_user to check if we can save multiple user objects to our user_list
             '''
             self.new_user.save_user()
-            test_user = User('email','password')
+            test_user = User('jk@b.com','allow')
 
-if __name__ == '__main__':
+    def test_delete_user(self):
+           '''
+           test_delete_user to test if we can remove a user from our user list
+           '''
+           self.test_user = User("jk@b.com","allow",)
+           self.test_user.save_user()
+           self.test_user.delete_user()
+           self.assertEqual(len(User.user_list),0)
+
+    def test_user_exists(self):
+           '''
+           test to check if we can return a Boolean  if we cannot find the contact.
+           '''
+           self.test_user = User("jk@b.com", "allow")          
+           self.test_user.save_user()
+           user_exists = User.user_exist("jk@b.com")
+           self.assertTrue(user_exists)
+
+if __name__ == "__main__":
     unittest.main()
