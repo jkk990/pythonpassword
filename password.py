@@ -24,17 +24,6 @@ class User:
         '''
         User.user_list.append(self)
 
-    def main(self):
-        print ('\nPassword Request Program v.01\n')
-        password = id("")
-        user_input = raw_input("Please Enter Password: ")
-	
-        if user_input != password:
-            sys.exit("Incorrect Password, terminating... \n")
-		
-            print ("User is logged in!\n")
-	
-
     def delete_user(self):
 
         '''

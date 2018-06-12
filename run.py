@@ -1,9 +1,22 @@
 #!/usr/bin/env python3.6
+from password import User
+from credential import Credential
 
-def main():
-    print("welcome to password locker, here all your passwords are SAFE!")   
-    Account = input()     
+def create_user(email,password):
+    '''
+    Function to create a new user
+    '''
+    new_user = User(email,password)
+    return new_user
 
-    user_name = input() 
+def save_user(user):
+    '''
+    Function to save user
+    '''
+    user.save_user()
 
-    password = input()      
+def del_user(user):
+    '''
+    Function to delete a user
+    '''
+    user.delete_user()   
