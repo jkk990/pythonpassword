@@ -83,13 +83,13 @@ def generate_password(self, size=8, char=string.ascii_uppercase+string.ascii_low
     return gen_pass
 
 def main():
-    print("Hello Welcome to your password locker. What is your email adress?")
-            email = input()
+        print("Hello Welcome to your password locker. What is your email adress?")
+        email = input()
 
-            print(f"Hello {email}. what are looking to do?")
-            print('\n')
+        print(f"Hello {email}. what are looking to do?")
+        print('\n')
 
-            while True:
+        while True:
                 print("Use these short codes : cu - create a new user, du - display a user, ex -exit the user list ")
              
                 short_code = input().lower()
@@ -117,7 +117,7 @@ def main():
                     print(f"New User {email} {password} created")
                     print('\n')
             
-            elif short_code == 'du':
+                elif short_code == 'du':
                     if display_user():
                         print("Here is a list of all users")
                         print('\n')
@@ -125,25 +125,25 @@ def main():
                             print(f"{user.email} {user.password}")
                         print('\n')
            
-                else:
+                    else:
                         print('\n')
                         print("You dont seem to have any user saved yet")
                         print('\n')
             
-            elif short_code == "ex":
-                 print("bye....")
-                 break
-            else:
-                 print("please use the short codes")
+                elif short_code == 'ex':
+                    print("bye....")
+                    break
+                else:
+                    print("please use the short codes")
 
-    print("Hello, please enter your acount_name")
+        print("Hello, please enter your acount_name")
         account_name = input()
 
         print(f"For {account_name}. lets choose what to do!")
 
         print('\n')
 
-         while True:
+        while True:
                     print("Use these short codes : cc - create a new credential, dc - display credential, fc -find credential, ex -exit the contact list ")
 
                     short_code = input().lower()
@@ -161,7 +161,7 @@ def main():
                             print("account_password ...")
                             account_password = input()
 
-                            save_contacts(create_credential(account_name,account_email,account_password))
+                            save_credential(create_credential(account_name,account_email,account_password))
                             
                             print ('\n')
                             print(f"New Credential {account_name} {account_email} created")
@@ -169,7 +169,7 @@ def main():
                     
                     elif short_code == 'dc':
 
-                            if display_credentials():
+                            if display_credential():
                                     print("Here is a list of all your credentials")
                                     print('\n')
                                     for credential in display_credential():
@@ -179,7 +179,7 @@ def main():
                                     print('\n')
                                     print("You dont seem to have any credentials saved yet")
                                     print('\n')
-                             elif short_code == 'fc':
+                    elif short_code == 'fc':
 
                             print("Enter the account_name you want to search for")
 
